@@ -1,19 +1,22 @@
 #include "monty.h"
 
-void start_running(stack_t **stack, FILE file)
+monty_t monty = {NULL, NULL, NULL, 0};
+
+void start_running(stack_t **stack, FILE *file)
 {
 	ssize_t r_line = 1;
 	size_t size = 0;
 	char *content;
 	unsigned int counter = 0;
 
+	monty.file = file;
 	while (r_line > 0)
 	{
 		content = NULL;
 		r_line = getline(&content, &size, file);
 		counter++;
 		if (r_line > 0)
-			// execute each command 
+			exec_func(content, stack, counter, file);
 		free(content);
 	}
 }
@@ -31,11 +34,12 @@ int main(int ac, char **av)
 	file = fopen(av[1], "r");
 	if (!file)
 	{
-		fprintf("Error: Can't open file %s\n", av[1]);
+		fprintf(stderr, "Error: Can't open file %s\n", av[1]);
 		exit(EXIT_FAILURE);
 	}
-	start_running(stack, file);
+	start_running(&stack, file);
 	clear_stack(stack);
 	fclose(file);
+	return (0);
 }
 
