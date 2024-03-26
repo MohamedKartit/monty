@@ -1,7 +1,10 @@
 #include "monty.h"
-
 monty_t monty = {NULL, NULL, NULL, 0};
-
+/**
+ * start_running - start the manipulation of the stack/ queue
+ * @stack: the linked list to manipulate
+ * @file: the fd of the file to read from
+ */
 void start_running(stack_t **stack, FILE *file)
 {
 	ssize_t r_line = 1;
@@ -22,6 +25,12 @@ void start_running(stack_t **stack, FILE *file)
 	}
 }
 
+/**
+ * main - the main function of our program
+ * @ac: number of arguments passed to our program
+ * @av: the arguments
+ * Return: 0 always SUCCESS, 1 FAIL
+ */
 int main(int ac, char **av)
 {
 	FILE *file;
@@ -43,5 +52,4 @@ int main(int ac, char **av)
 	fclose(file);
 	return (0);
 }
-
 

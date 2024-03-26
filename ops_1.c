@@ -8,6 +8,7 @@
 void push(stack_t **stack, unsigned int line_number)
 {
 	int n, j = 0, flag = 0;
+
 	if (!monty.arg)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
@@ -38,6 +39,7 @@ void push(stack_t **stack, unsigned int line_number)
 	else
 		add_queueint(stack, n);
 }
+
 /**
  * pall - prints the stack
  * @head: stack head
@@ -58,6 +60,7 @@ void pall(stack_t **head, unsigned int counter)
 		h = h->next;
 	}
 }
+
 /**
  * pint - prints the top
  * @head: stack head
@@ -76,6 +79,7 @@ void pint(stack_t **head, unsigned int counter)
 	}
 	printf("%d\n", (*head)->n);
 }
+
 /**
  * pop - prints the top
  * @head: stack head
@@ -98,6 +102,7 @@ void pop(stack_t **head, unsigned int counter)
 	*head = h->next;
 	free(h);
 }
+
 /**
  * swap - adds the top two elements of the stack.
  * @head: stack head
