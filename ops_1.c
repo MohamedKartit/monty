@@ -12,10 +12,9 @@ void push(stack_t **stack, unsigned int line_number)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		clear_stack(*stack);
-		free(monty.arg);
+		free(monty.content);
 		fclose(monty.file);
-		exit(EXIT_FAILURE);
-	}
+		exit(EXIT_FAILURE); }
 	else
 	{
 		if (monty.arg[0] == '-')
@@ -30,7 +29,7 @@ void push(stack_t **stack, unsigned int line_number)
 		{
 			fprintf(stderr, "L%d: usage: push integer\n", line_number);
 			clear_stack(*stack);
-			free(monty.arg);
+			free(monty.content);
 			fclose(monty.file);
 			exit(EXIT_FAILURE); }}
 	n = atoi(monty.arg);

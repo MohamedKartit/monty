@@ -14,6 +14,7 @@ void start_running(stack_t **stack, FILE *file)
 	{
 		content = NULL;
 		r_line = getline(&content, &size, file);
+		monty.content = content;
 		counter++;
 		if (r_line > 0)
 			exec_func(content, stack, counter, file);
@@ -42,4 +43,5 @@ int main(int ac, char **av)
 	fclose(file);
 	return (0);
 }
+
 
